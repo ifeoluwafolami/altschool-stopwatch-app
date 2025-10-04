@@ -1,3 +1,4 @@
+// Getting the elements from the DOM
 const aboutButton = document.getElementById("aboutBtn");
 const aboutModal = document.getElementById("aboutModal");
 const resetButton = document.getElementById("resetBtn");
@@ -18,6 +19,7 @@ const minutesDisplay = timeArray[1];
 const secondsDisplay = timeArray[2];
 const millisecondsDisplay = timeArray[3];
 
+// Data used for time display
 let hours = 0;
 let minutes = 0;
 let seconds = 0;
@@ -25,6 +27,7 @@ let milliseconds = 0;
 
 let timerInterval = null;
 let isRunning = false;
+
 
 // Open About Modal
 aboutButton.addEventListener("click", () => {
@@ -34,6 +37,12 @@ aboutButton.addEventListener("click", () => {
 // Close About Modal
 closeButton.addEventListener("click", () => {
     aboutModal.classList.remove("active");
+});
+
+window.addEventListener("click", (e) => {
+    if (e.target === aboutModal) {
+        aboutModal.classList.remove("active");
+    }
 });
 
 // Dark Mode
@@ -47,17 +56,14 @@ darkModeBtn.addEventListener("click", () => {
     });
 });
 
-window.addEventListener("click", (e) => {
-    if (e.target === aboutModal) {
-        aboutModal.classList.remove("active");
-    }
-});
+
 
 // Time Formatter (2 digits even for single numbers)
 function formatTime(value) {
     return value < 10 ? ("0" + value) : value;
 }
 
+// Timer display function
 function updateTimerDisplay() {
     hoursDisplay.textContent = formatTime(hours);
     minutesDisplay.textContent = formatTime(minutes);
@@ -68,7 +74,7 @@ function updateTimerDisplay() {
 function timerFunction() {
     milliseconds++;
 
-    // 100 milliseconds = 1 second
+    // 100 milliseconds * 10ms (interval) = 1 second
     if (milliseconds === 100) {
         milliseconds = 0;
         seconds++;
@@ -89,6 +95,8 @@ function timerFunction() {
     updateTimerDisplay();
 }
 
+
+// Start button functionality
 startButton.addEventListener("click", () => {
     if (!isRunning) {
         isRunning = true;
@@ -96,6 +104,7 @@ startButton.addEventListener("click", () => {
     }
 });
 
+// Stop button functionality
 stopButton.addEventListener("click", () => {
     if (isRunning) {
         isRunning = false;
@@ -104,6 +113,7 @@ stopButton.addEventListener("click", () => {
     }
 });
 
+// Reset button functionality
 resetButton.addEventListener("click", () => {
     if (isRunning) {
         isRunning = false;
