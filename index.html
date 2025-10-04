@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heph's Stopwatch - AltSchool Project</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <button id="aboutBtn">About</button>
+        <button id="darkModeBtn">Dark Mode</button>
+    </header>
+    <main>
+        <button id="resetBtn" class="reset">RESET</button>
+
+        <h1>
+            <span>00</span>:
+            <span>00</span>:
+            <span>00</span>:
+            <span>00</span>
+        </h1>
+
+        <!-- Start/Stop Button -->
+        <div class="buttons-div">
+            <button id="startBtn" class="timer-button">START</button>
+            <button id="stopBtn" class="timer-button">STOP</button>
+        </div>
+    </main>
+
+    <!-- About Modal -->
+    <div id="aboutModal" class="about-modal">
+        <div>
+            <span id="closeBtn" class="close">&times;</span>
+            <h2>Heph's Stopwatch App</h2>
+            <p>This application was created using HTML, CSS and JavaScript as a project for AltSchool Semester 1 Exams.</p>
+            <p>Created by: <strong>Ifeoluwa Folami</strong></p>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
